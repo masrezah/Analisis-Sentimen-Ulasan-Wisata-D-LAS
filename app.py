@@ -1,20 +1,4 @@
-import importlib
 import re
-import subprocess
-import sys
-
-
-def ensure_package(package_name, module_name=None):
-    target_module = module_name or package_name
-    try:
-        importlib.import_module(target_module)
-    except ModuleNotFoundError:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", package_name])
-
-
-ensure_package("joblib")
-ensure_package("scikit-learn", "sklearn")
-ensure_package("Sastrawi")
 
 import joblib
 import streamlit as st
